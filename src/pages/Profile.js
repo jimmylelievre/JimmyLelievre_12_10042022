@@ -1,6 +1,4 @@
 import React from "react";
-
-import ConfigApi from "../components/ConfigApi.js";
 import Stats from "../components/Stats.js";
 
 /**

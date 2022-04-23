@@ -103,20 +103,7 @@ const ConfigApi = () => {
     else setTimeout(getUserData, simDataLoadingTime);
   }, [user]);
 
-  return (
-    <div>
-      <Stats
-        value={{
-          user,
-          activity,
-          averageSessions,
-          performance,
-          performanceKind,
-          apiError,
-        }}
-      />
-    </div>
-  );
+  return <div></div>;
 };
 
 export default ConfigApi;

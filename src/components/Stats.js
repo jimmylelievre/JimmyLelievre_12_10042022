@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import data from "../assets/data.js";
-import DailyActivity from "./DailyActivity.js";
-import NutritionCards from "./NutritionCards.js";
-import Score from "./Score.js";
-import SessionDuration from "./SessionDuration.js";
-import TypesActivity from "./TypesActivity.js";
-import { getUser, getUserActivity } from "./Apis.js";
+
+import {
+  getUser,
+  getUserActivity,
+  getUserAverageSessions,
+  getUserPerformance,
+} from "./Apis.js";
 
 /**
  * Component for the showing the dashbord
@@ -17,7 +17,7 @@ import { getUser, getUserActivity } from "./Apis.js";
  * )
  */
 
-const Stats = ({ value }) => {
+const Stats = () => {
   const [user, setUser] = useState();
   const [activity, setActivity] = useState();
   const [averageSessions, setAverageSessions] = useState();
@@ -26,17 +26,17 @@ const Stats = ({ value }) => {
   const [apiError, setApiError] = useState(false);
 
   useEffect(() => {
-    /* getUser()
-      .then((user) => {
-        setUser(user);
-      })
-      .catch(() => {
-        setApiError(true);
-      }); */
-    Promise.all(getUser(), getUserActivity())
-      .then(([user, activity]) => {
+    Promise.all(
+      getUser(),
+      getUserActivity(),
+      getUserAverageSessions(),
+      getUserPerformance()
+    )
+      .then(([user, activity, averageSessions, userPerformance]) => {
         setUser(user);
         setActivity(activity);
+        setAverageSessions(averageSessions);
+        setPerformance(userPerformance);
       })
       .catch(() => {
         setApiError(true);
