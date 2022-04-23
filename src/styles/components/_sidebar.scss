@@ -1,0 +1,22 @@
+.sidebar {
+  width: 117px;
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+
+  img {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+  }
+  .copyrights {
+    transform: rotate(-90deg);
+    color: white;
+    width: 138px;
+    font-weight: 500;
+    font-size: 12px;
+  }
+}

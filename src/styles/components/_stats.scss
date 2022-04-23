@@ -1,0 +1,19 @@
+.stats {
+  display: flex;
+  margin-top: 35px;
+
+  .activity {
+    display: flex;
+    margin-top: 28px;
+    gap: 15px;
+  }
+  .container-graph {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 35px;
+  }
+  .firstname-color {
+    color: #e60000;
+  }
+}

@@ -1,0 +1,39 @@
+.nutrition-cards {
+  .card {
+    position: relative;
+    display: flex;
+    width: 258px;
+    height: 124px;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+    margin-bottom: 39px;
+    margin-left: 5%;
+  }
+  .background-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #ff0000;
+    opacity: 0.07;
+    border-radius: 6px;
+    position: absolute;
+    left: 32px;
+    top: 32px;
+  }
+  .container-icon {
+    margin-left: 52px;
+    margin-top: 52px;
+  }
+  .container-unit {
+    margin-left: 44px;
+    margin-top: 39px;
+  }
+  .unit {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .name-unit {
+    font-size: 14px;
+    color: #74798c;
+    margin-top: 5px;
+  }
+}

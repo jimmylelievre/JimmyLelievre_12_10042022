@@ -1,0 +1,20 @@
+.score {
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  font-size: 15px;
+  min-width: 200px;
+  max-width: 260px;
+  width: 19vw;
+  min-height: 200px;
+  max-height: 260px;
+  height: 19vw;
+
+  .score-title-value {
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .score-title {
+    font-size: 16px;
+  }
+}

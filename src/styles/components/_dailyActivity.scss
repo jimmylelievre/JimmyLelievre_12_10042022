@@ -1,0 +1,30 @@
+.dailyAcitity {
+  min-width: 630px;
+  max-width: 835px;
+  width: 60vw;
+  min-height: 270px;
+  max-height: 320px;
+  height: 28vw;
+  background-color: #fbfbfb;
+  border-radius: 5px;
+  font-size: 14px;
+
+  .dailyActivityGraph-tooltip {
+    width: 39px;
+    height: 63px;
+    background-color: #e60000;
+    color: white;
+    font-size: 7px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .dailyActivityGraph-legend {
+    color: #74798c;
+    margin-right: 20px;
+  }
+  .dailyActivity-title {
+    width: 10px;
+  }
+}
