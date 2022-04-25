@@ -8,8 +8,8 @@ import {
 } from "recharts";
 
 const TypesActivity = ({ data, kind }) => {
-  console.log("activity data", data);
-  if (data.lenght === 0) return null;
+  console.log("activity data", kind);
+
   // Format kind
   const titleKind = {
     cardio: "Cardio",
@@ -29,7 +29,7 @@ const TypesActivity = ({ data, kind }) => {
           <PolarGrid stroke="white" />
           <PolarAngleAxis
             dataKey="kind"
-            tickFormatter={formatKind}
+            tickFormatter={kind ? formatKind : null}
             stroke="white"
             axisLine={false}
             tickLine={false}

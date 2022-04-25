@@ -5,7 +5,7 @@ import {
   USER_PERFORMANCE,
 } from "../assets/data";
 
-const currentUser = 12; // Avalaible user on api : 12 | 18
+const currentUser = 18; // Avalaible user on api : 12 | 18
 const apiUrl = "http://localhost:3000"; // default: 'http://localhost:3000'
 const mockData = true; // true: data are mocked | false: get data form api
 
@@ -13,10 +13,10 @@ const mockData = true; // true: data are mocked | false: get data form api
  * Get user data
  */
 
-export const getUser = () => {
+export const getUser = async () => {
   if (mockData) {
     const user = USER_MAIN_DATA.find((item) => item.id === currentUser);
-    return new Promise((resolve) => resolve(user));
+    return await new Promise((resolve) => resolve(user));
   } else {
     return fetch(`${apiUrl}/user/${currentUser}`).then((response) =>
       response.json()

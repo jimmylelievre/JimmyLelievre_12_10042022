@@ -6,6 +6,11 @@ import {
   getUserAverageSessions,
   getUserPerformance,
 } from "./Apis.js";
+import DailyActivity from "./DailyActivity.js";
+import SessionDuration from "./SessionDuration.js";
+import TypesActivity from "./TypesActivity.js";
+import Score from "./Score.js";
+import NutritionCards from "./NutritionCards.js";
 
 /**
  * Component for the showing the dashbord
@@ -22,16 +27,15 @@ const Stats = () => {
   const [activity, setActivity] = useState();
   const [averageSessions, setAverageSessions] = useState();
   const [performance, setPerformance] = useState();
-  const [performanceKind, setPerformanceKind] = useState();
   const [apiError, setApiError] = useState(false);
 
   useEffect(() => {
-    Promise.all(
+    Promise.all([
       getUser(),
       getUserActivity(),
       getUserAverageSessions(),
-      getUserPerformance()
-    )
+      getUserPerformance(),
+    ])
       .then(([user, activity, averageSessions, userPerformance]) => {
         setUser(user);
         setActivity(activity);
@@ -43,33 +47,30 @@ const Stats = () => {
       });
   }, []);
 
-  console.log(user);
+  console.log(performance?.data);
 
   return (
     <div className="stats">
       <div>
         <h1>
-          Bonjour <span className="firstname-color">{}</span>
+          Bonjour{" "}
+          <span className="firstname-color">{user?.userInfos?.firstName}</span>
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
-        {/* <div className="container-graph">
+        <div className="container-graph">
           <div>
-            <DailyActivity userActivity={value.activity} />
+            <DailyActivity userActivity={activity} />
             <div className="activity">
-              <SessionDuration userSession={value.averageSessions} />
+              <SessionDuration userSession={averageSessions} />
               <TypesActivity
-                data={value?.performance ?? []}
-                kind={value.performanceKind}
+                data={performance?.data}
+                kind={performance?.kind}
               />
-              <Score
-                userScore={
-                  value.user?.score ? value.user?.score : value.user?.todayScore
-                }
-              />
+              <Score userScore={user?.score ? user?.score : user?.todayScore} />
             </div>
           </div>
-          <NutritionCards keyData={value.user?.keyData} />
-        </div> */}
+          <NutritionCards keyData={user?.keyData} />
+        </div>
       </div>
     </div>
   );
