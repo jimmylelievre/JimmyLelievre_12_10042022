@@ -47,29 +47,51 @@ const Stats = () => {
       });
   }, []);
 
-  console.log(performance?.data);
-
   return (
     <div className="stats">
       <div>
         <h1>
           Bonjour{" "}
-          <span className="firstname-color">{user?.userInfos?.firstName}</span>
+          <span className="firstname-color">
+            {user?.data
+              ? user?.data?.userInfos?.firstName
+              : user?.userInfos?.firstName}
+          </span>
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         <div className="container-graph">
           <div>
-            <DailyActivity userActivity={activity} />
+            <DailyActivity
+              userActivity={
+                activity?.data ? activity?.data?.sessions : activity?.sessions
+              }
+            />
             <div className="activity">
-              <SessionDuration userSession={averageSessions} />
+              <SessionDuration
+                userSession={
+                  averageSessions?.data
+                    ? averageSessions?.data?.sessions
+                    : averageSessions?.sessions
+                }
+              />
               <TypesActivity
-                data={performance?.data}
-                kind={performance?.kind}
+                data={
+                  performance?.data
+                    ? performance?.data?.data
+                    : performance?.data
+                }
+                kind={
+                  performance?.data
+                    ? performance?.data?.kind
+                    : performance?.kind
+                }
               />
               <Score userScore={user?.score ? user?.score : user?.todayScore} />
             </div>
           </div>
-          <NutritionCards keyData={user?.keyData} />
+          <NutritionCards
+            keyData={user.data ? user?.data?.keyData : user?.keyData}
+          />
         </div>
       </div>
     </div>

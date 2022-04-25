@@ -8,8 +8,6 @@ import {
 } from "recharts";
 
 const TypesActivity = ({ data, kind }) => {
-  console.log("activity data", kind);
-
   // Format kind
   const titleKind = {
     cardio: "Cardio",
