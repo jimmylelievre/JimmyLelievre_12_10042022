@@ -8,6 +8,14 @@ import {
   YAxis,
 } from "recharts";
 
+/**
+ * Show custom tooltip
+ * @param {Object} params
+ * @param {Boolean} params.active
+ * @param {Array} params.payload
+ * @return {JSX}
+ */
+
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
@@ -20,8 +28,21 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
+// Props types
+CustomTooltip.propTypes = {
+  active: propTypes.bool,
+  payload: propTypes.array,
+};
+
 const days = { 1: "L", 2: "M", 3: "M", 4: "J", 5: "V", 6: "S", 7: "D" };
 const legendLineX = (day) => days[day];
+
+/**
+ * Component for the showing the session duration chart
+ * @param {Object} params
+ * @param {Array} params.userSession
+ * @return {JSX}
+ */
 
 const SessionDuration = ({ userSession }) => {
   return (
@@ -82,6 +103,11 @@ const SessionDuration = ({ userSession }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+// Props types
+AverageSessions.propTypes = {
+  userSession: propTypes.array.isRequired,
 };
 
 export default SessionDuration;

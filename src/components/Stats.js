@@ -13,13 +13,8 @@ import Score from "./Score.js";
 import NutritionCards from "./NutritionCards.js";
 
 /**
- * Component for the showing the dashbord
- *
- * @component
- * @example
- * return (
- *   <Stats />
- * )
+ * Component for the showing the dashboard
+ * @return {JSX}
  */
 
 const Stats = () => {
@@ -76,21 +71,25 @@ const Stats = () => {
               />
               <TypesActivity
                 data={
-                  performance?.data
+                  performance?.data?.data
                     ? performance?.data?.data
                     : performance?.data
                 }
                 kind={
-                  performance?.data
+                  performance?.data?.kind
                     ? performance?.data?.kind
                     : performance?.kind
                 }
               />
-              <Score userScore={user?.score ? user?.score : user?.todayScore} />
+              <Score
+                userScore={
+                  user?.data?.score ? user?.data?.score : user?.data?.todayScore
+                }
+              />
             </div>
           </div>
           <NutritionCards
-            keyData={user.data ? user?.data?.keyData : user?.keyData}
+            keyData={user?.data ? user?.data?.keyData : user?.keyData}
           />
         </div>
       </div>

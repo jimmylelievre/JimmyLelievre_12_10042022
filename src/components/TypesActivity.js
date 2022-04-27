@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 import {
   RadarChart,
   Radar,
@@ -6,6 +7,14 @@ import {
   PolarAngleAxis,
   ResponsiveContainer,
 } from "recharts";
+
+/**
+ * Component for the showing the types of activity chart
+ * @param {Object} params
+ * @param {Array} params.data
+ * @param {Object} params.kind
+ * @return {JSX}
+ */
 
 const TypesActivity = ({ data, kind }) => {
   // Format kind
@@ -41,3 +50,9 @@ const TypesActivity = ({ data, kind }) => {
 };
 
 export default TypesActivity;
+
+// Props types
+Performance.propTypes = {
+  data: propTypes.array.isRequired,
+  kind: propTypes.object.isRequired,
+};

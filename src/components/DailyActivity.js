@@ -1,4 +1,5 @@
 import React from "react";
+import propTypes from "prop-types";
 import {
   BarChart,
   Bar,
@@ -9,6 +10,14 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+
+/**
+ * Show custom tooltip
+ * @param {Object} params
+ * @param {Boolean} params.active
+ * @param {Array} params.payload
+ * @return {JSX}
+ */
 
 const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
@@ -23,6 +32,18 @@ const CustomTooltip = ({ active, payload }) => {
   return null;
 };
 
+// Props types
+CustomTooltip.propTypes = {
+  active: propTypes.bool,
+  payload: propTypes.array,
+};
+
+/**
+ * Change the english legend to french
+ * @param { String } value
+ * @return { HTMLElement }
+ */
+
 const legendText = (value) => {
   let legendTxt = "";
   if (value === "kilogram") {
@@ -33,7 +54,20 @@ const legendText = (value) => {
   return <span className="dailyActivityGraph-legend">{legendTxt}</span>;
 };
 
+/**
+ * Change the format of the day
+ * @param { number } day
+ * @return { number }
+ */
+
 const formatDay = (day) => new Date(day).getDate();
+
+/**
+ * Show activity chart
+ * @param {Object} params
+ * @param {Array} params.userActivity
+ * @return {JSX}
+ */
 
 const DailyActivity = ({ userActivity }) => {
   return (
@@ -109,6 +143,11 @@ const DailyActivity = ({ userActivity }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+// Props types
+Activity.propTypes = {
+  userActivity: propTypes.array.isRequired,
 };
 
 export default DailyActivity;

@@ -1,13 +1,8 @@
 import React from "react";
 
 /**
- * Component for the showing the top menu
- *
- * @component
- * @example
- * return (
- *   <Home />
- * )
+ * Component for the showing the home page
+ * @return {JSX}
  */
 
 const Home = () => {

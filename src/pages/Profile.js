@@ -2,13 +2,8 @@ import React from "react";
 import Stats from "../components/Stats.js";
 
 /**
- * Component for the showing the top menu
- *
- * @component
- * @example
- * return (
- *   <Profile />
- * )
+ * Component for the showing the profile page
+ * @return {JSX}
  */
 
 const Profile = () => {

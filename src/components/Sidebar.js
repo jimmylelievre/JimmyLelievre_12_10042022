@@ -5,13 +5,8 @@ import iconBike from "../assets/images/iconBike.png";
 import iconDumbbell from "../assets/images/iconDumbbell.png";
 
 /**
- * Component for the showing the top menu
- *
- * @component
- * @example
- * return (
- *   <Sidebar />
- * )
+ * Component for the showing the sidebar
+ * @return {JSX}
  */
 
 const Sidebar = () => {

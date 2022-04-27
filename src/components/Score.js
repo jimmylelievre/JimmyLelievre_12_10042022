@@ -2,6 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 
+/**
+ * Component for the showing the score chart
+ * @param {Object} params
+ * @param {Array} params.userScore
+ * @return {JSX}
+ */
+
 const Score = ({ userScore }) => {
   const scoreValue = userScore * 100;
 
@@ -66,6 +73,11 @@ const Score = ({ userScore }) => {
       </ResponsiveContainer>
     </div>
   );
+};
+
+// Props types
+Score.propTypes = {
+  userScore: propTypes.number.isRequired,
 };
 
 export default Score;

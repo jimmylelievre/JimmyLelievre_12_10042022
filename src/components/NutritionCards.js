@@ -4,6 +4,13 @@ import BurgerIcon from "./icon/BurgerIcon";
 import ChickenIcon from "./icon/ChickenIcon";
 import FireIcon from "./icon/FireIcon";
 
+/**
+ * Component for the showing the nutrition cards
+ * @param {Object} params
+ * @param {Array} params.keyData
+ * @return {JSX}
+ */
+
 const NutritionCards = ({ keyData }) => {
   const [nutritionData, setNutritionData] = useState(keyData);
 
@@ -58,6 +65,11 @@ const NutritionCards = ({ keyData }) => {
       </div>
     </div>
   );
+};
+
+// Props types
+Activity.propTypes = {
+  keyData: propTypes.array.isRequired,
 };
 
 export default NutritionCards;

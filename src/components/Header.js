@@ -2,13 +2,8 @@ import React from "react";
 import logo from "../assets/logo.png";
 
 /**
- * Component for the showing the top menu
- *
- * @component
- * @example
- * return (
- *   <Header />
- * )
+ * Component for the showing the header
+ * @return {JSX}
  */
 
 const Header = () => {
