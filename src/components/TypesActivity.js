@@ -53,6 +53,6 @@ export default TypesActivity;
 
 // Props types
 Performance.propTypes = {
-  data: propTypes.array.isRequired,
-  kind: propTypes.object.isRequired,
+  data: propTypes.array,
+  kind: propTypes.object,
 };

@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import {
   LineChart,
   Line,
@@ -30,8 +32,8 @@ const CustomTooltip = ({ active, payload }) => {
 
 // Props types
 CustomTooltip.propTypes = {
-  active: propTypes.bool,
-  payload: propTypes.array,
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 };
 
 const days = { 1: "L", 2: "M", 3: "M", 4: "J", 5: "V", 6: "S", 7: "D" };
@@ -106,8 +108,8 @@ const SessionDuration = ({ userSession }) => {
 };
 
 // Props types
-AverageSessions.propTypes = {
-  userSession: propTypes.array.isRequired,
+SessionDuration.propTypes = {
+  userSession: PropTypes.array,
 };
 
 export default SessionDuration;

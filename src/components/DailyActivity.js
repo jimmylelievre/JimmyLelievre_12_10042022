@@ -1,5 +1,5 @@
 import React from "react";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 import {
   BarChart,
   Bar,
@@ -34,8 +34,8 @@ const CustomTooltip = ({ active, payload }) => {
 
 // Props types
 CustomTooltip.propTypes = {
-  active: propTypes.bool,
-  payload: propTypes.array,
+  active: PropTypes.bool,
+  payload: PropTypes.array,
 };
 
 /**
@@ -145,9 +145,9 @@ const DailyActivity = ({ userActivity }) => {
   );
 };
 
-// Props types
-Activity.propTypes = {
-  userActivity: propTypes.array.isRequired,
-};
-
 export default DailyActivity;
+
+// Props types
+DailyActivity.propTypes = {
+  userActivity: PropTypes.array,
+};

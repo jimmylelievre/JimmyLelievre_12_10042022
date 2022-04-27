@@ -3,6 +3,7 @@ import AppleIcon from "./icon/AppleIcon";
 import BurgerIcon from "./icon/BurgerIcon";
 import ChickenIcon from "./icon/ChickenIcon";
 import FireIcon from "./icon/FireIcon";
+import PropTypes from "prop-types";
 
 /**
  * Component for the showing the nutrition cards
@@ -67,9 +68,9 @@ const NutritionCards = ({ keyData }) => {
   );
 };
 
-// Props types
-Activity.propTypes = {
-  keyData: propTypes.array.isRequired,
-};
-
 export default NutritionCards;
+
+// Props types
+NutritionCards.propTypes = {
+  keyData: PropTypes.object,
+};

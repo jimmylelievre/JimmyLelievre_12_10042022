@@ -5,7 +5,7 @@ import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
 /**
  * Component for the showing the score chart
  * @param {Object} params
- * @param {Array} params.userScore
+ * @param {number} params.userScore
  * @return {JSX}
  */
 
@@ -74,10 +74,8 @@ const Score = ({ userScore }) => {
     </div>
   );
 };
-
 // Props types
 Score.propTypes = {
-  userScore: propTypes.number.isRequired,
+  userScore: PropTypes.number,
 };
-
 export default Score;

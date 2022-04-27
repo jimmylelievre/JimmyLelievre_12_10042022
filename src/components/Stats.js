@@ -81,11 +81,19 @@ const Stats = () => {
                     : performance?.kind
                 }
               />
-              <Score
-                userScore={
-                  user?.data?.score ? user?.data?.score : user?.data?.todayScore
-                }
-              />
+              {user?.data ? (
+                <Score
+                  userScore={
+                    user?.data?.score
+                      ? user?.data?.score
+                      : user?.data?.todayScore
+                  }
+                />
+              ) : (
+                <Score
+                  userScore={user?.score ? user?.score : user?.todayScore}
+                />
+              )}
             </div>
           </div>
           <NutritionCards
