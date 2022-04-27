@@ -6,7 +6,7 @@
     height: 124px;
     border-radius: 5px;
     background-color: #fbfbfb;
-    margin-bottom: 39px;
+    margin-bottom: 36px;
     margin-left: 5%;
   }
   .background-icon {
@@ -35,5 +35,20 @@
     font-size: 14px;
     color: #74798c;
     margin-top: 5px;
+  }
+}
+@media screen and (max-width: 1034px) {
+  .nutrition-cards {
+    .card {
+      width: 200px;
+
+      margin-bottom: 10px;
+    }
+    .name-unit {
+      font-size: 12px;
+    }
+    .unit {
+      font-size: 17px;
+    }
   }
 }

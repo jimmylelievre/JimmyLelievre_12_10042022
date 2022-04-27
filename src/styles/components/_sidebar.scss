@@ -1,4 +1,8 @@
 .sidebar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
   width: 117px;
   height: 100vh;
   background-color: black;
