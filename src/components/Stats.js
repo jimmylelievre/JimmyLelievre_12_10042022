@@ -6,6 +6,7 @@ import {
   getUserAverageSessions,
   getUserPerformance,
 } from "./Apis.js";
+
 import DailyActivity from "./DailyActivity.js";
 import SessionDuration from "./SessionDuration.js";
 import TypesActivity from "./TypesActivity.js";

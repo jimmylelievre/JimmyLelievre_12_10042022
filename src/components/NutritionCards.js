@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 /**
  * Component for the showing the nutrition cards
  * @param {Object} params
- * @param {Array} params.keyData
+ * @param {Object} params.keyData
  * @return {JSX}
  */
 
