@@ -17,6 +17,7 @@ import {
  */
 
 const TypesActivity = ({ data, kind }) => {
+  if (!data) return null;
   // Format kind
   const titleKind = {
     cardio: "Cardio",
