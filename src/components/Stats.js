@@ -19,11 +19,8 @@ import NutritionCards from "./NutritionCards.js";
  */
 
 const Stats = () => {
-  const [user, setUser] = useState();
-  const [activity, setActivity] = useState();
-  const [averageSessions, setAverageSessions] = useState();
-  const [performance, setPerformance] = useState();
   const [apiError, setApiError] = useState(false);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     Promise.all([
@@ -32,16 +29,24 @@ const Stats = () => {
       getUserAverageSessions(),
       getUserPerformance(),
     ])
-      .then(([user, activity, averageSessions, userPerformance]) => {
-        setUser(user);
-        setActivity(activity);
-        setAverageSessions(averageSessions);
-        setPerformance(userPerformance);
+      .then(([user, activity, averageSessions, performance]) => {
+        setUserData({
+          user,
+          activity,
+          averageSessions,
+          performance,
+        });
       })
       .catch(() => {
         setApiError(true);
       });
   }, []);
+
+  if (userData === null) {
+    return null;
+  }
+
+  let { user, activity, averageSessions, performance } = userData;
 
   return (
     <div className="stats">
@@ -49,57 +54,23 @@ const Stats = () => {
         <h1>
           Bonjour{" "}
           <span className="firstname-color">
-            {user?.data
-              ? user?.data?.userInfos?.firstName
-              : user?.userInfos?.firstName}
+            {user?.data?.userInfos?.firstName}
           </span>
         </h1>
         <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
         <div className="container-graph">
           <div>
-            <DailyActivity
-              userActivity={
-                activity?.data ? activity?.data?.sessions : activity?.sessions
-              }
-            />
+            <DailyActivity userActivity={activity?.data?.sessions} />
             <div className="activity">
-              <SessionDuration
-                userSession={
-                  averageSessions?.data
-                    ? averageSessions?.data?.sessions
-                    : averageSessions?.sessions
-                }
-              />
+              <SessionDuration userSession={averageSessions?.data?.sessions} />
               <TypesActivity
-                data={
-                  performance?.data?.data
-                    ? performance?.data?.data
-                    : performance?.data
-                }
-                kind={
-                  performance?.data?.kind
-                    ? performance?.data?.kind
-                    : performance?.kind
-                }
+                data={performance?.data?.data}
+                kind={performance?.data?.kind}
               />
-              {user?.data ? (
-                <Score
-                  userScore={
-                    user?.data?.score
-                      ? user?.data?.score
-                      : user?.data?.todayScore
-                  }
-                />
-              ) : (
-                <Score
-                  userScore={user?.score ? user?.score : user?.todayScore}
-                />
-              )}
+              <Score userScore={user?.data?.score} />
             </div>
           </div>
-          <NutritionCards
-            keyData={user?.data ? user?.data?.keyData : user?.keyData}
-          />
+          <NutritionCards keyData={user?.data?.keyData} />
         </div>
       </div>
     </div>

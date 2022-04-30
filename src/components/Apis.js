@@ -7,70 +7,47 @@ import {
 
 const currentUser = 12; // Avalaible user on api : 12 | 18
 const apiUrl = "http://localhost:3000"; // default: 'http://localhost:3000'
-const mockData = true; // true: data are mocked | false: get data form api
+const mockData = false; // true: data are mocked | false: get data form api
+const apiHost = `${apiUrl}/user/${currentUser}`;
+
+const findUserById = (item) => item.id === currentUser;
+const findDataById = (item) => item.userId === currentUser;
+
+const userInfo = {
+  mockData: {
+    user: USER_MAIN_DATA,
+    activity: USER_ACTIVITY,
+    averageSessions: USER_AVERAGE_SESSIONS,
+    performance: USER_PERFORMANCE,
+  },
+  apiData: {
+    user: apiHost,
+    activity: apiHost + "/activity",
+    averageSessions: apiHost + "/average-sessions",
+    performance: apiHost + "/performance",
+  },
+};
+
+export const getUser = () => getData("user");
+export const getUserActivity = () => getData("activity");
+export const getUserAverageSessions = () => getData("averageSessions");
+export const getUserPerformance = () => getData("performance");
 
 /**
  * Get user data
  */
 
-export const getUser = () => {
+export const getData = (info) => {
   if (mockData) {
-    const user = USER_MAIN_DATA.find((item) => item.id === currentUser);
-    return new Promise((resolve) => resolve(user));
+    const fn = info === "user" ? findUserById : findDataById;
+    const user = userInfo.mockData[info].find(fn);
+
+    return new Promise((resolve) =>
+      resolve({
+        data: user,
+      })
+    );
   } else {
-    return fetch(`${apiUrl}/user/${currentUser}`).then((response) =>
-      response.json()
-    );
-  }
-};
-
-/**
- * Get user activity data
- */
-export const getUserActivity = () => {
-  if (mockData) {
-    const activity = USER_ACTIVITY.find(
-      (activity) => activity.userId === currentUser
-    );
-
-    return new Promise((resolve) => resolve(activity));
-  } else {
-    return fetch(`${apiUrl}/user/${currentUser}/activity`).then((response) =>
-      response.json()
-    );
-  }
-};
-
-/**
- * Get user average sessions data
- */
-
-export const getUserAverageSessions = () => {
-  if (mockData) {
-    const averageSessions = USER_AVERAGE_SESSIONS.find(
-      (averageSessions) => averageSessions.userId === currentUser
-    );
-    return new Promise((resolve) => resolve(averageSessions));
-  } else {
-    return fetch(`${apiUrl}/user/${currentUser}/average-sessions`).then(
-      (response) => response.json()
-    );
-  }
-};
-
-/**
- * Get user performance data
- */
-
-export const getUserPerformance = () => {
-  if (mockData) {
-    const userPerformance = USER_PERFORMANCE.find(
-      (performance) => performance.userId === currentUser
-    );
-    return new Promise((resolve) => resolve(userPerformance));
-  } else {
-    return fetch(`${apiUrl}/user/${currentUser}/performance`).then((response) =>
-      response.json()
-    );
+    return fetch(userInfo.apiData[info]).then((response) => response.json());
   }
 };
