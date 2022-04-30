@@ -35,6 +35,7 @@ export const getUserPerformance = () => getData("performance");
 
 /**
  * Get user data
+ * * @param {string} params.info
  */
 
 export const getData = (info) => {
