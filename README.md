@@ -22,7 +22,7 @@ In the project directory, you can run:
 `npm install`
 Install each dependencies to launch this project
 
-```
+```bash
 npm start
 ```
 
