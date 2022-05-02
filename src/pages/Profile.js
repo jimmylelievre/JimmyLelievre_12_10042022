@@ -1,5 +1,5 @@
 import React from "react";
-import Stats from "../components/Stats.js";
+import Dashboard from "../components/Dashboard.js";
 
 /**
  * Component for the showing the profile page
@@ -8,8 +8,8 @@ import Stats from "../components/Stats.js";
 
 const Profile = () => {
   return (
-    <div className="profile">
-      <Stats />
+    <div>
+      <Dashboard />
     </div>
   );
 };
