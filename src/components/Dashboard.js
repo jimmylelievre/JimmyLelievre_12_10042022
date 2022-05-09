@@ -19,7 +19,6 @@ import NutritionCards from "./NutritionCards.js";
  */
 
 const Dashboard = () => {
-  const [apiError, setApiError] = useState(false);
   const [userData, setUserData] = useState(null);
 
   useEffect(() => {
@@ -37,11 +36,19 @@ const Dashboard = () => {
           performance,
         });
       })
-      .catch(() => {
-        setApiError(true);
-      });
+      .catch((err) => console.log(err));
   }, []);
-  console.log(apiError);
+  console.log(userData);
+
+  if (userData === null) {
+    return (
+      <p className="error">
+        La connexion avec notre serveur a été perdu, n'hésitez pas à verifier
+        votre connexion internet et à rafraichir la page et si le problème
+        persite merci de contacter un administrateur.
+      </p>
+    );
+  }
 
   if (userData === null) {
     return null;
@@ -49,15 +56,7 @@ const Dashboard = () => {
 
   let { user, activity, averageSessions, performance } = userData;
 
-  return apiError ? (
-    <div>
-      <p className="error">
-        La connexion avec notre serveur a été perdu, n'hésitez pas à verifier
-        votre connexion internet et à rafraichir la page et si le problème
-        persite merci de contacter un administrateur.
-      </p>
-    </div>
-  ) : (
+  return (
     <div className="stats">
       <div>
         <h1>
