@@ -38,7 +38,6 @@ const Dashboard = () => {
       })
       .catch((err) => console.log(err));
   }, []);
-  console.log(userData);
 
   if (userData === null) {
     return (
