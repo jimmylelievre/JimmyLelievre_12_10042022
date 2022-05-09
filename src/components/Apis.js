@@ -7,7 +7,7 @@ import {
 
 const currentUser = 12; // Avalaible user on api : 12 | 18
 const apiUrl = "http://localhost:3000"; // default: 'http://localhost:3000'
-const mockData = true; // true: data are mocked | false: get data from api
+const mockData = false; // true: data are mocked | false: get data from api
 const apiHost = `${apiUrl}/user/${currentUser}`;
 
 const findUserById = (item) => item.id === currentUser;
